@@ -27,46 +27,55 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-  let nombre = document.getElementById("nombre");
-  let apellido = document.getElementById("apellido");  // Corregido aquí
-  let correo = document.getElementById("correo");
-  let idea = document.getElementById("idea");
-  let mensaje = document.getElementById("mensaje");
-  let nombreError = document.getElementById("nombreError");
-  let apellidoError = document.getElementById("apellidoError");  // Corregido aquí
-  let correoError = document.getElementById("correoError");
-  let ideaError = document.getElementById("ideaError");
-  let mensajeError = document.getElementById("mensajeError");
   let form = document.getElementById("myForm");
 
   form.addEventListener("submit", function(event) {
+    let isValid = true;
+
+    let nombre = document.getElementById("nombre");
+    let apellido = document.getElementById("apellido");
+    let correo = document.getElementById("correo");
+    let idea = document.getElementById("idea");
+    let mensaje = document.getElementById("mensaje");
+
+    let nombreError = document.getElementById("nombreError");
+    let apellidoError = document.getElementById("apellidoError");
+    let correoError = document.getElementById("correoError");
+    let ideaError = document.getElementById("ideaError");
+    let mensajeError = document.getElementById("mensajeError");
+
     nombreError.textContent = "";
-    apellidoError.textContent = "";  // Corregido aquí
+    apellidoError.textContent = "";
     correoError.textContent = "";
     ideaError.textContent = "";
     mensajeError.textContent = "";
 
-    if (nombre.value === null || nombre.value.trim() === "") {
+    if (nombre.value.trim() === "") {
       nombreError.textContent = "Por favor, completa tu nombre";
-      event.preventDefault();
-    }
-    if (apellido.value === null || apellido.value.trim() === "") {
-      apellidoError.textContent = "Por favor, completa tu apellido";  // Corregido aquí
-      event.preventDefault();
+      isValid = false;
     }
 
-    if (correo.value === null || correo.value.trim() === "") {
+    if (apellido.value.trim() === "") {
+      apellidoError.textContent = "Por favor, completa tu apellido";
+      isValid = false;
+    }
+
+    if (correo.value.trim() === "") {
       correoError.textContent = "Por favor, ingresa tu correo";
-      event.preventDefault();
+      isValid = false;
     }
 
-    if (idea.value === null || idea.value.trim() === "") {
+    if (idea.value.trim() === "") {
       ideaError.textContent = "Por favor, ingresa tu idea principal";
-      event.preventDefault();
+      isValid = false;
     }
 
-    if (mensaje.value === null || mensaje.value.trim() === "") {
+    if (mensaje.value.trim() === "") {
       mensajeError.textContent = "Por favor, ingresa tu mensaje";
+      isValid = false;
+    }
+
+    if (!isValid) {
       event.preventDefault();
     }
   });
