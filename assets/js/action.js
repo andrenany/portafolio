@@ -30,53 +30,44 @@ document.addEventListener("DOMContentLoaded", function() {
   let form = document.getElementById("myForm");
 
   form.addEventListener("submit", function(event) {
-    let isValid = true;
+    let nombre = document.getElementById("nombre").value;
+    let apellido = document.getElementById("apellido").value;
+    let correo = document.getElementById("correo").value;
+    let idea = document.getElementById("idea").value;
+    let mensaje = document.getElementById("mensaje").value;
 
-    let nombre = document.getElementById("nombre");
-    let apellido = document.getElementById("apellido");
-    let correo = document.getElementById("correo");
-    let idea = document.getElementById("idea");
-    let mensaje = document.getElementById("mensaje");
-
-    let nombreError = document.getElementById("nombreError");
-    let apellidoError = document.getElementById("apellidoError");
-    let correoError = document.getElementById("correoError");
-    let ideaError = document.getElementById("ideaError");
-    let mensajeError = document.getElementById("mensajeError");
-
-    nombreError.textContent = "";
-    apellidoError.textContent = "";
-    correoError.textContent = "";
-    ideaError.textContent = "";
-    mensajeError.textContent = "";
-
-    if (nombre.value.trim() === "") {
-      nombreError.textContent = "Por favor, completa tu nombre";
-      isValid = false;
-    }
-
-    if (apellido.value.trim() === "") {
-      apellidoError.textContent = "Por favor, completa tu apellido";
-      isValid = false;
-    }
-
-    if (correo.value.trim() === "") {
-      correoError.textContent = "Por favor, ingresa tu correo";
-      isValid = false;
-    }
-
-    if (idea.value.trim() === "") {
-      ideaError.textContent = "Por favor, ingresa tu idea principal";
-      isValid = false;
-    }
-
-    if (mensaje.value.trim() === "") {
-      mensajeError.textContent = "Por favor, ingresa tu mensaje";
-      isValid = false;
-    }
-
-    if (!isValid) {
+    // Valido los campos
+    if (nombre.trim() === '') {
+      alert('Por favor, ingrese su nombre completo.');
       event.preventDefault();
+      return;
     }
+
+    if (apellido.trim() === '') {
+      alert('Por favor, ingrese su apellido.');
+      event.preventDefault();
+      return;
+    }
+
+    if (correo.trim() === '') {
+      alert('Por favor, ingrese su correo electrónico.');
+      event.preventDefault();
+      return;
+    }
+
+    if (idea.trim() === '') {
+      alert('Por favor, ingrese la idea principal.');
+      event.preventDefault();
+      return;
+    }
+
+    if (mensaje.trim() === '') {
+      alert('Por favor, ingrese un mensaje.');
+      event.preventDefault();
+      return;
+    }
+
+    // Envío el formulario
+    form.submit();
   });
 });
