@@ -20,3 +20,9 @@
     height: 200px; /* Mantiene la proporción de la imagen */
     width: 300px;
   }
+
+@media (max-width: 768px) {
+    .freelancer-available {
+      display: none;
+    }
+}
