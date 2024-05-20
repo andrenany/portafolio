@@ -1,0 +1,22 @@
+:root{
+    --color1: #ad42f5;
+}
+.logo{
+    width: 200px;
+}
+
+.morado{
+   background-color: var(--color1); 
+}
+
+.fondo{
+    background-image:url('/fondo.png');
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir toda la pantalla */
+    background-position: center; /* Centra la imagen en la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+}
+.responsive-image {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho de su contenedor */
+    height: 200px; /* Mantiene la proporción de la imagen */
+    width: 300px;
+  }
